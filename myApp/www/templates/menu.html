@@ -2,20 +2,20 @@
 <br>
 <main>
 
-<div class='row main'>
+<div class='row main' ng-controller="AppCtrl" >
   <div id='play'>
     <div class="row mid">
       <div class='col col-20 arrow'>
-        <i class="icon ion-ios-rewind"></i>
+        <i class="icon ion-ios-rewind" ng-click='sendPath({command:"back"})'></i>
       </div>
       <div class="col col-60 center">
-        <div class='playPause' on-tap='sendPath({command:"space"})'>
+        <div class='playPause' ng-click='sendPath({command:"space"})'>
           <i class="icon ion-play"></i>
           <i class="icon ion-pause"></i>
         </div>
       </div>
       <div class='col col-20 arrow'>
-        <i class="icon ion-ios-fastforward"></i>
+        <i class="icon ion-ios-fastforward" ng-click='sendPath({command:"next"})'></i>
       </div>
     </div>
   </div>

@@ -63318,7 +63318,7 @@ GESTURE_DIRECTIVES.forEach(function(name) {
  *
  * @usage
  * ```html
- * <button on-tap="onTap()" class="button">Test</button>
+ * <button ng-click="onTap()" class="button">Test</button>
  * ```
  */
 
