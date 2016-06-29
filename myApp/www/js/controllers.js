@@ -1,18 +1,7 @@
+var socketRoom;
 angular.module('starter.controllers', [])
 
-.factory('musicData', function () {
-  var socketRoom;
-  return {
-    socketRoomSet,
-  }
-
-  function socketRoomSet (room){
-    if (room) socketRoom = room
-    return socketRoom
-  }
-})
-
-.controller('AppCtrl', function($scope, $ionicSideMenuDelegate, musicData) {
+.controller('AppCtrl', function($scope, $ionicSideMenuDelegate) {
   var url = 'https://fathomless-falls-33454.herokuapp.com/'
   var socket = io.connect(url);
   $scope.setRoom = setRoom;
@@ -20,7 +9,7 @@ angular.module('starter.controllers', [])
   $scope.sendPath = sendPath;
 
   function setRoom(room) {
-    var socketRoom = musicData.socketRoomSet(room)
+    socketRoom = room
     socket.emit('server', {info: 'client wants data!', room: socketRoom, to: 'electron'})
     socket.on(socketRoom + 'client', function (data) {
       if (Array.isArray(data)) {
@@ -37,7 +26,6 @@ angular.module('starter.controllers', [])
   }
 
   function sendPath (path) {
-    var socketRoom = musicData.socketRoomSet()
     socket.emit('server', {info: path, room: socketRoom, to: 'electron'})
   }
 
