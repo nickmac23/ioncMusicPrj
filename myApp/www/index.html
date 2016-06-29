@@ -54,7 +54,7 @@
         </ion-header-bar>
         <ion-content>
           <ion-list>
-            <ion-item menu-close="" ng-repeat="music in list">
+            <ion-item menu-close="" ng-repeat="music in list" ng-click="sendPath(music.path)">
               {{music.title}}
             </ion-item>
           </ion-list>

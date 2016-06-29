@@ -6,6 +6,7 @@ angular.module('starter.controllers', [])
   var socket = io.connect(url);
   $scope.setRoom = setRoom;
   $scope.roomConnect = false;
+  $scope.sendPath = sendPath;
 
   function setRoom(room) {
     socketRoom = room
@@ -22,6 +23,11 @@ angular.module('starter.controllers', [])
         console.log(data);
       }
     })
+  }
+
+  function sendPath (path) {
+    console.log(path);
+    socket.emit('server', {info: path, room: socketRoom, to: 'electron'})
   }
 
 })
