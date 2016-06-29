@@ -20,10 +20,14 @@ angular.module('starter.controllers', [])
           $scope.$apply()
         }
       } else {
-        // console.log(data);
+        console.log(data);
+        $scope.musicInfo = data
+        $scope.$apply();
       }
     })
   }
+
+
 
   function sendPath (path) {
     socket.emit('server', {info: path, room: socketRoom, to: 'electron'})

@@ -2,71 +2,61 @@
 <br>
 <main>
 
+  <h1 class='col col-100 command'>{{musicInfo.command}}</h1>
 <div class='row main' ng-controller="AppCtrl" >
-  <div id='play'>
-    <div class="row mid">
+
       <div class='col col-20 arrow'>
         <i class="icon ion-ios-rewind" ng-click='sendPath({command:"back"})'></i>
       </div>
-      <div class="col col-60 center">
-        <div class='playPause' ng-click='sendPath({command:"space"})'>
+        <div class='col col-60 playPause' ng-click='sendPath({command:"space"})'>
           <i class="icon ion-play"></i>
           <i class="icon ion-pause"></i>
         </div>
-      </div>
       <div class='col col-20 arrow'>
-        <button><i class="icon ion-ios-fastforward" ng-click='sendPath({command:"next"})'></i>
+        <i class="icon ion-ios-fastforward" ng-click='sendPath({command:"next"})'></i>
       </div>
-    </div>
-  </div>
+</div>
+<div id='command'>
+
 </div>
 <div class='row'>
-  <div class='info'></div>
+  <div class='info'>
+    <br>
+    <h6>Title: {{musicInfo.title}}</h6>
+    <div ng-repeat='artist in musicInfo.artist'><h6>Artist: {{artist}}</h6></div>
+    <div ng-repeat='genre in musicInfo.genre'><h6>Genre: {{genre}}</h6></div>
+    <h6>Album: {{musicInfo.album}}</h6>
+  </div>
 </div>
 </main>
 
 
 <style>
+  .command{
+    height: 5vh;
+    text-align: center;
+  }
   .main{
     padding-left: 10%;
     padding-right: 10%;
     padding-bottom: 10%;
-    padding-top: 5%;
-    height: 60vh;
-  }
-  #play{
-    padding: 10%;
-    border-radius: 100%;
-    border: solid black 3px;
-    width: 100%;
-    height: 100%;
-  }
-  div.mid{
-    border-radius: 100%;
-    border: solid black 3px;
-    width: 100%;
-    height: 100%;
+    /*padding-top: 5%;*/
+    height: 40vh;
   }
   div.playPause{
-    padding-top:12%;
-    border-radius: 100%;
-    width: 100%;
-    height: 100%;
-    border: solid black 3px;
-  }
-  div.center{
-    padding-top: 22%;
-    padding-bottom: 22%;
-    font-size: 10vw;
-    text-align:center;
+    padding-top:30%;
+    text-align: center;
+    font-size: 15vw;
+
   }
   div.arrow{
     text-align: center;
     height:100%;
-    font-size: 9vw;
+    font-size: 15vw;
     padding-top: 30%;
   }
   .info{
+    text-align: center;
     width: 100vw;
     border-top: solid black 3px;
   }
