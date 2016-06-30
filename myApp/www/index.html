@@ -38,7 +38,7 @@
 
             </ion-nav-buttons>
             <ion-nav-buttons side="right">
-                <input type="text" placeholder="    Channel" ng-model="socketRoom" ng-hide="roomConnect">
+                <input type="text" placeholder="Channel" ng-model="socketRoom" ng-hide="roomConnect">
                 <button class="button button-small" ng-click="setRoom(socketRoom)" ng-hide="roomConnect">
                   Submit
                 </button>
@@ -47,17 +47,41 @@
           <br>
           <ion-nav-view></ion-nav-view>
         </ion-side-menu-content>
+
+
       <ion-side-menu side="left">
         <ion-header-bar class="bar-stable">
-          <h1 class="title">Music!</h1>
+          <label class="item-input-wrapper">
+            <i class="icon ion-ios-search placeholder-icon"></i>
+            <input type="search" placeholder="Search" ng-model="search">
+          </label>
+          <button class="button button-clear">
+            Cancel
+          </button>
         </ion-header-bar>
         <ion-content>
           <ion-list>
-            <ion-item menu-close="" ng-repeat="music in list" ng-click="sendPath({command:'play',path:music.path,index:music.index,pageIndex:$index,from:'socket'})">
-              {{music.title}}{{music.artist}}{{music.genre}}{{music.album}}
+            <ion-item menu-close="" ng-repeat="music in list | orderBy: by | filter: search" ng-click="sendPath({command:'play',path:music.path,index:music.index,pageIndex:$index,from:'socket'})">
+              <p>Title: {{music.title}}</p><p ng-repeat="artist in music.artist">Artists: {{artist}}</p><p ng-repeat="genre in music.genre">Genres: {{genre}}</p><p>Album: {{music.album}}</p>
             </ion-item>
           </ion-list>
         </ion-content>
+        <ion-footer-bar>
+          <div class="tabs">
+            <a class="tab-item" on-tap="orderBy('title')">
+              Title
+            </a>
+            <a class="tab-item" on-tap="orderBy('artist')">
+              Artist
+            </a>
+            <a class="tab-item" on-tap="orderBy('album')">
+              Album
+            </a>
+            <a class="tab-item" on-tap="orderBy('genre')">
+              Genre
+            </a>
+        </div>
+      </ion-footer-bar>
       </ion-side-menu>
     </ion-side-menus>
 

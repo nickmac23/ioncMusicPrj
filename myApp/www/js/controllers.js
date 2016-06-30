@@ -1,4 +1,5 @@
 var socketRoom;
+var state = {};
 angular.module('starter.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicSideMenuDelegate) {
@@ -7,6 +8,12 @@ angular.module('starter.controllers', [])
   $scope.setRoom = setRoom;
   $scope.roomConnect = false;
   $scope.sendPath = sendPath;
+  $scope.orderBy = orderBy;
+
+  function orderBy(by){
+    $scope.by = by
+    sendPath({command: 'state', order: by, from: 'socket'})
+  }
 
   function setRoom(room) {
     socketRoom = room
@@ -20,7 +27,6 @@ angular.module('starter.controllers', [])
           $scope.$apply()
         }
       } else {
-        console.log(data);
         $scope.musicInfo = data
         $scope.$apply();
       }
