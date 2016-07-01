@@ -53,7 +53,7 @@
         <ion-header-bar class="bar-stable">
           <label class="item-input-wrapper">
             <i class="icon ion-ios-search placeholder-icon"></i>
-            <input type="search" placeholder="Search" ng-model="search">
+            <input type="search" ng-change="searchState(search)" placeholder="Search" ng-model="search">
           </label>
           <button class="button button-clear">
             Cancel

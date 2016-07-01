@@ -9,6 +9,7 @@ angular.module('starter.controllers', [])
   $scope.roomConnect = false;
   $scope.sendPath = sendPath;
   $scope.orderBy = orderBy;
+  $scope.searchState = searchState;
 
   function orderBy(by){
     $scope.by = by
@@ -31,6 +32,10 @@ angular.module('starter.controllers', [])
         $scope.$apply();
       }
     })
+  }
+
+  function searchState (search) {
+    sendPath({command: 'search', fill: search, from: 'socket'})
   }
 
 
