@@ -36,6 +36,7 @@ angular.module('starter.controllers', [])
   }
 
   function searchState (search) {
+    if (search.length === 0) search = false
     sendPath({command: 'search', fill: search, from: 'socket'})
   }
 

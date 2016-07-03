@@ -1,1 +1,10 @@
-/* Empty. Add your own CSS if you like */
+/*#pic{
+  position: fixed;
+  z-index: -1;
+  top: 50px;
+  width: 100%;
+}*/
+#cool{
+  background: black;
+  opacity: 0.8;
+}

@@ -1,8 +1,7 @@
+<main id='mainer'>
 <br>
 <br>
-<main>
-
-  <h1 class='col col-100 command'>{{musicInfo.command}}</h1>
+<h1 class='col col-100 command'>{{musicInfo.command}}</h1>
 <div class='row main' ng-controller="AppCtrl" >
 
       <div class='col col-20 arrow'>
@@ -16,22 +15,45 @@
         <i class="icon ion-ios-fastforward" ng-click='sendPath({command:"next", from: "socket"})'></i>
       </div>
 </div>
+<div class="item range range-positive">
+  <i class="icon ion-volume-low"></i>
+  <input type="range" name="volume" min="0" max="100" value="100"  ng-model='volume' ng-change='sendPath({command:"volume", val:volume/100, from:"socket"})' >
+  <i class="icon ion-volume-high"></i>
+</div>
+
 <div id='command'>
 
 </div>
 <div class='row'>
   <div class='info'>
     <br>
-    <h6>Title: {{musicInfo.music.title}}</h6>
-    <div ng-repeat='artist in musicInfo.music.artist'><h6>Artist: {{artist}}</h6></div>
+    <h6>{{musicInfo.music.title}}</h6>
+    <h6>{{musicInfo.music.album}}</h6>
+    <div ng-repeat='artist in musicInfo.music.artist'><h6>{{artist}}</h6></div>
     <div ng-repeat='genre in musicInfo.music.genre'><h6>Genre: {{genre}}</h6></div>
-    <h6>Album: {{musicInfo.music.album}}</h6>
   </div>
 </div>
 </main>
 
 
 <style>
+.vol{
+  text-align: center;
+  position: flex;
+  justify-content: center;
+}
+  #myRange{
+    width: 70%
+  }
+  #mainer{
+    background-color: black;
+    color: white;
+    opacity: 0.9;
+    height: 100%;
+  }
+  h1{
+    color: white;
+  }
   .command{
     height: 5vh;
     text-align: center;
@@ -40,8 +62,7 @@
     padding-left: 10%;
     padding-right: 10%;
     padding-bottom: 10%;
-    /*padding-top: 5%;*/
-    height: 40vh;
+    height: 50vh;
   }
   div.playPause{
     padding-top:30%;
@@ -56,8 +77,11 @@
     padding-top: 30%;
   }
   .info{
+    /*color: white;*/
     text-align: center;
     width: 100vw;
-    border-top: solid black 3px;
+  }
+  .info h6{
+    color: white;
   }
 </style>
