@@ -29,6 +29,7 @@ angular.module('starter.controllers', [])
         }
       } else {
         $scope.musicInfo = data
+        console.log(data);
         $scope.$apply();
       }
     })
