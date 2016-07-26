@@ -59,7 +59,7 @@
         </ion-header-bar>
         <ion-content>
           <ion-list>
-            <ion-item menu-close="" ng-repeat="music in list | orderBy: by | filter: search" ng-click="sendPath({command:'play',path:music.path,index:music.index,pageIndex:$index,from:'socket'})">
+            <ion-item menu-close="" ng-repeat="music in eState.list" ng-click="sendPath({command:'play',path:music.path,index:music.index,pageIndex:$index,from:'socket'})">
             <div>
               <p>Title: {{music.title}}</p>
               <p ng-repeat="artist in music.artist">Artists: {{artist}}</p>

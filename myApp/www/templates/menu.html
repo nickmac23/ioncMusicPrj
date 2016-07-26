@@ -1,7 +1,7 @@
 <main id='mainer'>
 <br>
 <br>
-<h1 class='col col-100 command'>{{musicInfo.command}}</h1>
+<h1 class='col col-100 command'>{{eState.command}}</h1>
 <div class='row main' ng-controller="AppCtrl" >
 
       <div class='col col-20 arrow'>
@@ -22,10 +22,10 @@
 <div class='row'>
   <div class='info'>
     <br>
-    <h6>{{musicInfo.music.title}}</h6>
-    <h6>{{musicInfo.music.album}}</h6>
-    <div ng-repeat='artist in musicInfo.music.artist'><h6>{{artist}}</h6></div>
-    <div ng-repeat='genre in musicInfo.music.genre'><h6>Genre: {{genre}}</h6></div>
+    <h6>{{eState.music.title}}</h6>
+    <h6>{{eState.music.album}}</h6>
+    <div ng-repeat='artist in eState.music.artist'><h6>{{artist}}</h6></div>
+    <div ng-repeat='genre in eState.music.genre'><h6>Genre: {{genre}}</h6></div>
   </div>
 </div>
 <div class="item range range-positive">

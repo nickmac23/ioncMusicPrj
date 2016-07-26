@@ -20,18 +20,13 @@ angular.module('starter.controllers', [])
     socketRoom = room
     socket.emit('server', {info: 'client wants data!', room: socketRoom, to: 'electron'})
     socket.on(socketRoom + 'client', function (data) {
-      if (Array.isArray(data)) {
-        if (data.length > 0){
-          $scope.roomConnect = true
-          $ionicSideMenuDelegate.toggleLeft()
-          $scope.list = data;
-          $scope.$apply()
-        }
-      } else {
-        $scope.musicInfo = data
-        console.log(data);
+        if(!$scope.roomConnect)$ionicSideMenuDelegate.toggleLeft()
+        $scope.roomConnect = true
+        $scope.$apply()
+        $scope.eState = data
+        console.log($scope.eState);
         $scope.$apply();
-      }
+
     })
   }
 
